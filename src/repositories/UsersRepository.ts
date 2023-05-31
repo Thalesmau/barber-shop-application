@@ -21,6 +21,40 @@ class UsersRepository {
     })
     return result
   }
+
+  async findUserById(id: string) {
+    const result = await prisma.users.findUnique({
+      where: {
+        id,
+      },
+    })
+    return result
+  }
+
+  async update(name: string, avatarUrl: string, userId: string) {
+    const result = await prisma.users.update({
+      where: {
+        id: userId,
+      },
+      data: {
+        name,
+        avatarUrl,
+      },
+    })
+    return result
+  }
+
+  async updatePassword(newPassword: string, userId: string) {
+    const result = await prisma.users.update({
+      where: {
+        id: userId,
+      },
+      data: {
+        password: newPassword,
+      },
+    })
+    return result
+  }
 }
 
 export { UsersRepository }

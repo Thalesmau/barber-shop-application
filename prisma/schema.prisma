@@ -11,11 +11,11 @@ datasource db {
 }
 
 model Users {
-  id         String @id @default(uuid())
-  email      String @unique
-  password   String
-  name       String
-  avatar_url String @default("")
+  id        String @id @default(uuid())
+  email     String @unique
+  password  String
+  name      String
+  avatarUrl String @default("")
 }
 
 model Schedule {
